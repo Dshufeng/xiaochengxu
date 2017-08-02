@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="navbar">  
+  <text wx:for="{{navbar}}" data-ite="{{item}}" data-idx="{{index}}" class="item {{currentTabIdx==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>  
+</view>  
+  
+<!--body-->
+<view >  
+  11111111111 
+</view>  
+<view >  
+  {{currentTabIte}} 
+</view>  
