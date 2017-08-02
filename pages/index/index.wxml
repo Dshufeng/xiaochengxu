@@ -4,9 +4,17 @@
 </view>  
   
 <!--body-->
-<view >  
-  11111111111 
-</view>  
-<view >  
-  {{currentTabIte}} 
-</view>  
+<view class="body" wx:for="{{articleLists}}">
+  <view class="content">
+    {{item.title}}
+  </view>
+  <view class="pic" wx:if="{{item.pic}}">
+    <image src="{{item.pic}}"></image>
+  </view>
+  <view class="footer">
+    <view class="editor">{{item.src}}</view>
+    <view class="editor">{{item.time}}</view>
+  </view>
+  <view class="bottom"></view>
+</view>
+

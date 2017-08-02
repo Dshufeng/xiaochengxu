@@ -28,4 +28,29 @@ page{
   right: 0;  
   height: 4rpx;  
   background: red;  
+}
+.body{
+  background: #fff;
+  padding: 26rpx;
 } 
+.content{
+  width:100%;
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-top:10rpx;
+  line-height: 70rpx;
+}
+.footer{
+  border-bottom: 2rpx solid #eee;
+  display: flex;
+  padding-bottom:10rpx;
+  font-size: 28rpx;
+}
+.bottom{
+  height: 6rex;
+  width: 100%;
+  background: #fff;
+}
+.editor{
+  margin-right: 14rpx;
+}
