@@ -4,7 +4,7 @@
 </view>  
   
 <!--body-->
-<view class="body" wx:for="{{articleLists}}">
+<view class="body" wx:for="{{articleLists}}" bindtap="detailsNews" date-id="{{index}}">
   <view class="content">
     {{item.title}}
   </view>

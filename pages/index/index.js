@@ -7,7 +7,27 @@ Page({
     currentTabIdx:0,
     articleLists:[],
   },
+  onReady: function () {
+    var _this = this;
+    wx.request({
+      url: 'https://way.jd.com/jisuapi/get',
+      data: {
+        channel: this.data.currentTabIte,
+        appkey: 'fc4a06a254b6d27a0a94f0da15823181'
+      },
+      success: function (res) {
+        wx.hideNavigationBarLoading()
+        console.log(res.data.result.result.list);
+        if (res.statusCode == 200) {
+          _this.setData({
+            articleLists: res.data.result.result.list
+          })
+        }
+      }
+    })
+  },
   navbarTap: function (e) {
+    wx.showNavigationBarLoading()
     console.log(e.currentTarget.dataset.ite);
     this.setData({
       currentTabIdx: e.currentTarget.dataset.idx,
@@ -21,6 +41,7 @@ Page({
         appkey: 'fc4a06a254b6d27a0a94f0da15823181'
       },
       success: function (res) {
+        wx.hideNavigationBarLoading()
         console.log(res.data.result.result.list);
         console.log(_this);
         if (res.statusCode == 200)
@@ -30,6 +51,13 @@ Page({
           })
         }
       }
+    })
+  },
+  detailsNews:function(e){
+    console.log(e.currentTarget.dataset.id);
+    
+    wx.navigateTo({
+      url: '../details/details',
     })
   }
 }) 
