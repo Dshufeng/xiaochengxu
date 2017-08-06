@@ -17,7 +17,6 @@ Page({
       },
       success: function (res) {
         wx.hideNavigationBarLoading()
-        console.log(res.data.result.result.list);
         if (res.statusCode == 200) {
           _this.setData({
             articleLists: res.data.result.result.list
@@ -28,7 +27,7 @@ Page({
   },
   navbarTap: function (e) {
     wx.showNavigationBarLoading()
-    console.log(e.currentTarget.dataset.ite);
+    // console.log(e.currentTarget.dataset.ite);
     this.setData({
       currentTabIdx: e.currentTarget.dataset.idx,
       currentTabIte: e.currentTarget.dataset.ite
@@ -42,22 +41,30 @@ Page({
       },
       success: function (res) {
         wx.hideNavigationBarLoading()
-        console.log(res.data.result.result.list);
-        console.log(_this);
+        
         if (res.statusCode == 200)
         {
           _this.setData({
             articleLists:res.data.result.result.list
-          })
+          });
+
+          // 缓存
+          wx.setStorage({
+            key: "key",
+            data: res.data.result.result.list,
+            success:function(){
+              console.log(123)
+            }
+          });
         }
       }
     })
   },
   detailsNews:function(e){
-    console.log(e.currentTarget.dataset.id);
-    
+    console.log(e.currentTarget.dataset.newid);
+    var id = e.currentTarget.dataset.newid;
     wx.navigateTo({
-      url: '../details/details',
+      url: '../details/details?id='+id,
     })
   }
 }) 

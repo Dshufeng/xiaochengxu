@@ -5,14 +5,30 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    title:'',
+    time:'',
+    auth:'',
+    content:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var id = options.id,
+        _this = this;
+    wx.getStorage({
+      key: 'key',
+      success: function (res) {
+        console.log(res.data[id])
+        _this.setData({
+          title: res.data[id].title,
+          auth: res.data[id].src,
+          time: res.data[id].time,
+          content: res.data[id].content
+        });
+      }
+    });
   },
 
   /**

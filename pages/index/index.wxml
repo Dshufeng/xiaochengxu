@@ -4,9 +4,9 @@
 </view>  
   
 <!--body-->
-<view class="body" wx:for="{{articleLists}}" bindtap="detailsNews" date-id="{{index}}">
+<view class="body" wx:for="{{articleLists}}" bindtap="detailsNews" data-newid="{{index}}">
   <view class="content">
-    {{item.title}}
+    {{item.title}}{{index}}
   </view>
   <view class="pic" wx:if="{{item.pic}}">
     <image src="{{item.pic}}"></image>

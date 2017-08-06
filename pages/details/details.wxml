@@ -1,0 +1,4 @@
+<view class="">{{title}}</view>
+<view class="">{{auth}}</view>
+<view class="">{{time}}</view>
+<view class="">{{content}}</view>
