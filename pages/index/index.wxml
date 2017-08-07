@@ -4,14 +4,14 @@
 </view>  
   
 <!--body-->
-<view class="body" wx:for="{{articleLists}}" bindtap="detailsNews" data-newid="{{index}}">
-  <view class="content">
-    {{item.title}}{{index}}
+<view class="new-content" wx:for="{{articleLists}}" bindtap="detailsNews" data-newid="{{index}}">
+  <view class="new-header">
+    {{item.title}}
   </view>
   <view class="pic" wx:if="{{item.pic}}">
     <image src="{{item.pic}}"></image>
   </view>
-  <view class="footer">
+  <view class="new-footer">
     <view class="editor">{{item.src}}</view>
     <view class="editor">{{item.time}}</view>
   </view>

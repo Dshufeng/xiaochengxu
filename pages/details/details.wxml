@@ -1,4 +1,12 @@
-<view class="">{{title}}</view>
-<view class="">{{auth}}</view>
-<view class="">{{time}}</view>
-<view class="">{{content}}</view>
+<import src="../../wxParse/wxParse.wxml"/> 
+
+<view class="title">{{title}}</view>
+<view class="info">
+  <view class="">{{auth}}</view>
+  <view class="">{{time}}</view>
+</view>
+
+
+<view class="details">
+  <template is="wxParse" data="{{}}{{wxParseData:content.nodes}}"/>
+</view>

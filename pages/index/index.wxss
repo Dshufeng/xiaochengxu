@@ -29,18 +29,18 @@ page{
   height: 4rpx;  
   background: red;  
 }
-.body{
+.new-content{
   background: #fff;
   padding: 26rpx;
 } 
-.content{
+.new-header{
   width:100%;
   font-size: 34rpx;
   font-weight: bold;
   margin-top:10rpx;
   line-height: 70rpx;
 }
-.footer{
+.new-footer{
   border-bottom: 2rpx solid #eee;
   display: flex;
   padding-bottom:10rpx;
@@ -54,3 +54,4 @@ page{
 .editor{
   margin-right: 14rpx;
 }
+

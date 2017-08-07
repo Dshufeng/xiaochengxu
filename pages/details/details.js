@@ -1,3 +1,4 @@
+var WxParse = require('../../wxParse/wxParse.js');
 var app = getApp()
 Page({
 
@@ -8,7 +9,6 @@ Page({
     title:'',
     time:'',
     auth:'',
-    content:'',
   },
 
   /**
@@ -20,13 +20,13 @@ Page({
     wx.getStorage({
       key: 'key',
       success: function (res) {
-        console.log(res.data[id])
+        // console.log(res.data[id])
         _this.setData({
           title: res.data[id].title,
           auth: res.data[id].src,
           time: res.data[id].time,
-          content: res.data[id].content
         });
+        WxParse.wxParse('content', 'html', res.data[id].content, _this)
       }
     });
   },

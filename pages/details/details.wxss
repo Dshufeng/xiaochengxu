@@ -1,0 +1,13 @@
+.title{
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.info{
+  font-size:28rpx;
+  display: flex;
+}
+
+.details{
+  font-size: 30rpx;
+}
