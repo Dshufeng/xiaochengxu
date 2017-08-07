@@ -1,13 +1,26 @@
+.detail-body{
+  /* width: 90%; */
+  align-content: center;
+  margin-left: 36rpx;
+  margin-right: 36rpx;
+}
 .title{
-  font-size: 32rpx;
+  font-size: 36rpx;
   font-weight: bold;
+  margin-bottom: 30rpx;
+  margin-top: 26rpx;
 }
 
 .info{
-  font-size:28rpx;
+  font-size:24rpx;
   display: flex;
+  margin-bottom: 10rpx;
 }
-
+.time{
+  margin-left: 10rpx;
+}
 .details{
-  font-size: 30rpx;
+  font-size: 34rpx;
+  line-height: 54rpx;
+  margin-bottom: 30rpx;
 }

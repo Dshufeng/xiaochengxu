@@ -2,7 +2,7 @@
 var app = getApp()
 Page({
   data: {
-    navbar: ['头条', '新闻', '财经', '体育','军事','教育','科技'],
+    navbar: ['头条', '新闻', '财经', '体育', '军事', '教育', '科技','NBA','股票','星座','女性','健康','育儿'],
     currentTabIte: '头条',
     currentTabIdx:0,
     articleLists:[],
@@ -20,14 +20,23 @@ Page({
         if (res.statusCode == 200) {
           _this.setData({
             articleLists: res.data.result.result.list
-          })
+          });
+
+          // 缓存
+          wx.setStorage({
+            key: "key",
+            data: res.data.result.result.list,
+            success: function () {
+              console.log(123)
+            }
+          });
         }
       }
     })
   },
   navbarTap: function (e) {
     wx.showNavigationBarLoading()
-    // console.log(e.currentTarget.dataset.ite);
+    console.log(e.currentTarget.dataset.ite);
     this.setData({
       currentTabIdx: e.currentTarget.dataset.idx,
       currentTabIte: e.currentTarget.dataset.ite

@@ -1,5 +1,5 @@
 /** wxss **/
-page{  
+/* page{  
   display: flex;  
   flex-direction: column;  
   height: 100%;  
@@ -28,28 +28,58 @@ page{
   right: 0;  
   height: 4rpx;  
   background: red;  
+} */
+.navbar{
+  /* display: flex; */
+  white-space: nowrap;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  position: fixed;
+  background: #fff;
+}
+.navbar-item{
+  display: inline-block;
+  width: 112rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 14px;
+}
+.navbar .navbar-item.active{  
+  border-bottom: 2px solid red;
+  color: red;
+  font-weight: bold;
+}
+
+.content{
+  padding-top:100rpx;
 }
 .new-content{
   background: #fff;
-  padding: 26rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
 } 
 .new-header{
   width:100%;
   font-size: 34rpx;
   font-weight: bold;
   margin-top:10rpx;
-  line-height: 70rpx;
+  line-height: 60rpx;
+  margin-bottom: 16rpx;
 }
 .new-footer{
   border-bottom: 2rpx solid #eee;
   display: flex;
-  padding-bottom:10rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
   font-size: 28rpx;
 }
 .bottom{
   height: 6rex;
   width: 100%;
   background: #fff;
+}
+.pic{
+  text-align: center;
 }
 .editor{
   margin-right: 14rpx;
