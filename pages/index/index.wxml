@@ -20,4 +20,9 @@
   <view class="bottom"></view>
 </view>
 </view>
+<view class="reload">
+  <block >
+    <icon type="circle" size="45" color="white"/>
+  </block>
+</view>
 

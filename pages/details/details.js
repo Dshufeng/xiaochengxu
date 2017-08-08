@@ -26,7 +26,7 @@ Page({
           auth: res.data[id].src,
           time: res.data[id].time,
         });
-        WxParse.wxParse('content', 'html', res.data[id].content, _this)
+        WxParse.wxParse('content', 'html', res.data[id].content, _this,20)
       }
     });
   },

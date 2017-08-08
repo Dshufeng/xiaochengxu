@@ -55,12 +55,12 @@
 }
 .new-content{
   background: #fff;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
+  margin-left: 42rpx;
+  margin-right: 42rpx;
 } 
 .new-header{
   width:100%;
-  font-size: 34rpx;
+  font-size: 36rpx;
   font-weight: bold;
   margin-top:10rpx;
   line-height: 60rpx;
@@ -81,7 +81,14 @@
 .pic{
   text-align: center;
 }
+.pic image{
+  width: 100%;
+}
 .editor{
   margin-right: 14rpx;
 }
-
+.reload{
+  position: fixed;
+  right:60rpx;
+  bottom: 60rpx;
+}
