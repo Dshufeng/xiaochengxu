@@ -5,9 +5,10 @@
     "pages/details/details"
   ],
   "window":{
-    "backgroundTextStyle":"light",
+    "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#FF3333",
     "navigationBarTitleText": "头条精选",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle":"white",
+    "enablePullDownRefresh": "true"
   }
 }

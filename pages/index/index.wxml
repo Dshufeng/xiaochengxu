@@ -3,26 +3,26 @@
 <scroll-view class="navbar" scroll-x>  
   <view  wx:for="{{navbar}}" data-ite="{{item}}" data-idx="{{index}}" class="navbar-item {{currentTabIdx==index ? 'active' : ''}}" bindtap="navbarTap" >{{item}}</view>
 </scroll-view>  
-  
+   
 <!--body-->
 <view class="content">
-<view class="new-content" wx:for="{{articleLists}}" bindtap="detailsNews" data-newid="{{index}}">
-  <view class="new-header">
-    {{item.title}}
+  <view class="new-content" wx:for="{{articleLists}}" bindtap="detailsNews" data-newid="{{index}}">
+    <view class="new-header">
+      {{item.title}}
+    </view>
+    <view class="pic" wx:if="{{item.pic}}">
+      <image src="{{item.pic}}"></image>
+    </view>
+    <view class="new-footer">
+      <view class="editor">{{item.src}}</view>
+      <view class="editor">{{item.time}}</view>
+    </view>
+    <view class="bottom"></view>
   </view>
-  <view class="pic" wx:if="{{item.pic}}">
-    <image src="{{item.pic}}"></image>
-  </view>
-  <view class="new-footer">
-    <view class="editor">{{item.src}}</view>
-    <view class="editor">{{item.time}}</view>
-  </view>
-  <view class="bottom"></view>
 </view>
-</view>
-<view class="reload">
-  <block >
-    <icon type="circle" size="45" color="white"/>
-  </block>
+
+<view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+<view class="weui-loading"></view>
+<view class="weui-loadmore__tips">正在加载</view>
 </view>
 
