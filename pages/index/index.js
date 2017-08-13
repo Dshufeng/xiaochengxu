@@ -6,78 +6,64 @@ Page({
     currentTabIte: '头条',
     currentTabIdx:0,
     articleLists:[],
-    isHideLoadMore:false,
+    isHideLoadMore:true,
     start:0,
     num:10
   },
-  onLoad:function(){
-    var _this = this;
-
+  getNews:function(start,num){
+    var that = this;
     wx.request({
       url: 'https://way.jd.com/jisuapi/get',
       data: {
-        channel: this.data.currentTabIte,
+        channel: that.data.currentTabIte,
         appkey: 'fc4a06a254b6d27a0a94f0da15823181',
-        start: this.data.start,
-        num: this.data.num
+        start: start,
+        num: num
       },
       success: function (res) {
         wx.hideNavigationBarLoading()
         if (res.statusCode == 200) {
-          _this.setData({
-            articleLists: res.data.result.result.list
+          that.setData({
+            articleLists: res.data.result.result.list.concat(that.data.articleLists),
+            isHideLoadMore: false
           });
 
           // 缓存
           wx.setStorage({
             key: "key",
-            data: res.data.result.result.list,
+            data: that.data.articleLists,
             success: function () {
               console.log('strorage');
             }
           });
+          wx.stopPullDownRefresh();
+          
+          setTimeout(function(){
+            that.setData({
+              isHideLoadMore:true
+            })
+          },1500);
         }
       }
     });
-
+  },
+  onLoad:function(){
+    this.getNews(0,10);
   },
   onReady: function () {
     
   },
   navbarTap: function (e) {
     wx.showNavigationBarLoading()
-    console.log(e.currentTarget.dataset.ite);
+    
     this.setData({
       currentTabIdx: e.currentTarget.dataset.idx,
-      currentTabIte: e.currentTarget.dataset.ite
+      currentTabIte: e.currentTarget.dataset.ite,
+      articleLists:[],
+      start:0
     });
     var _this = this;
-    wx.request({
-      url: 'https://way.jd.com/jisuapi/get',
-      data: {
-        channel: this.data.currentTabIte,
-        appkey: 'fc4a06a254b6d27a0a94f0da15823181'
-      },
-      success: function (res) {
-        wx.hideNavigationBarLoading()
-        
-        if (res.statusCode == 200)
-        {
-          _this.setData({
-            articleLists:res.data.result.result.list
-          });
-
-          // 缓存
-          wx.setStorage({
-            key: "key",
-            data: res.data.result.result.list,
-            success:function(){
-              console.log(123)
-            }
-          });
-        }
-      }
-    })
+    this.getNews(0,10);
   },
   detailsNews:function(e){
     console.log(e.currentTarget.dataset.newid);
@@ -87,20 +73,21 @@ Page({
     })
   },
   onPullDownRefresh: function () {
-    wx.stopPullDownRefresh();
-    console.log(111);
+    // console.log(this.data.start);
+    this.setData({
+      start: this.data.start + 10
+    });
+    this.getNews(this.data.start, 10);
   },
   // xiahua
   onReachBottom: function () {
-    // 我们用total和count来控制分页，total代表已请求数据的总数，count代表每次请求的个数。
-    // 上拉时需把total在原来的基础上加上count，代表从count条后的数据开始请求。
-    //total += count;
-    // 网络请求
-    //this.periphery();
     this.setData({
       isHideLoadMore:true
     });
-    console.log(1112);
+    // this.setData({
+    //   start: this.data.start+10
+    // });
+    // this.getNews(this.data.start,10);
     this.setData({
       isHideLoadMore:false
     });

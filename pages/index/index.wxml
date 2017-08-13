@@ -3,9 +3,11 @@
 <scroll-view class="navbar" scroll-x>  
   <view  wx:for="{{navbar}}" data-ite="{{item}}" data-idx="{{index}}" class="navbar-item {{currentTabIdx==index ? 'active' : ''}}" bindtap="navbarTap" >{{item}}</view>
 </scroll-view>  
-   
 <!--body-->
 <view class="content">
+  <view class="tips" hidden="{{isHideLoadMore}}">
+    <text>数据记载完成:)</text>
+  </view>
   <view class="new-content" wx:for="{{articleLists}}" bindtap="detailsNews" data-newid="{{index}}">
     <view class="new-header">
       {{item.title}}
