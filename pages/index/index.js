@@ -6,9 +6,10 @@ Page({
     currentTabIte: '头条',
     currentTabIdx:0,
     articleLists:[],
-    isHideLoadMore:true,
+    isHideLoadMore:false,
     start:0,
-    num:10
+    num:10,
+    animationData: {}
   },
   getNews:function(start,num){
     var that = this;
@@ -23,11 +24,12 @@ Page({
       success: function (res) {
         wx.hideNavigationBarLoading()
         if (res.statusCode == 200) {
+          that.showTip();
           that.setData({
             articleLists: res.data.result.result.list.concat(that.data.articleLists),
-            isHideLoadMore: false
+            // isHideLoadMore: true
           });
-
+          
           // 缓存
           wx.setStorage({
             key: "key",
@@ -38,11 +40,12 @@ Page({
           });
           wx.stopPullDownRefresh();
           
-          setTimeout(function(){
-            that.setData({
-              isHideLoadMore:true
-            })
-          },1500);
+          // setTimeout(function(){
+          //   that.setData({
+          //     isHideLoadMore:false
+          //   })
+          // },1500);
+          that.hideTip();
         }
       }
     });
@@ -73,7 +76,6 @@ Page({
     })
   },
   onPullDownRefresh: function () {
-    // console.log(this.data.start);
     this.setData({
       start: this.data.start + 10
     });
@@ -93,4 +95,39 @@ Page({
     });
   },
 
+  // anot
+  hideTip: function () {
+    var animation = wx.createAnimation({
+      duration: 2500,
+      timingFunction: 'ease',
+    })
+
+    this.animation = animation
+    animation.height(0).opacity(0).step()
+    
+    this.setData({
+      animationData: animation.export()
+    })
+
+    setTimeout(function () {
+      this.setData({
+        isHideLoadMore: true
+      })
+    }.bind(this), 1000);
+    
+  },
+  showTip:function(){
+    var animation = wx.createAnimation({
+      duration: 100,
+      timingFunction: 'ease',
+    })
+    this.animation = animation
+    this.setData({
+      isHideLoadMore: false
+    })
+    animation.height(30).opacity(1).step();
+    this.setData({
+      animationData: animation.export()
+    })
+  }
 }) 

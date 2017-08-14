@@ -5,7 +5,7 @@
 </scroll-view>  
 <!--body-->
 <view class="content">
-  <view class="tips" hidden="{{isHideLoadMore}}">
+  <view class="tips" animation="{{animationData}}" hidden="{{isHideLoadMore}}">
     <text>数据记载完成:)</text>
   </view>
   <view class="new-content" wx:for="{{articleLists}}" bindtap="detailsNews" data-newid="{{index}}">
