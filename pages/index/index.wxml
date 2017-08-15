@@ -5,12 +5,14 @@
 </scroll-view>  
 <!--body-->
 <view class="content">
-  <view class="tips" animation="{{animationData}}" hidden="{{isHideLoadMore}}">
-    <text>数据记载完成:)</text>
+<view class="tip">
+  <view class="tips" animation="{{animationData}}" >
+    <text>头条精选为您推荐10条数据</text>
   </view>
+</view>
   <view class="new-content" wx:for="{{articleLists}}" bindtap="detailsNews" data-newid="{{index}}">
     <view class="new-header">
-      {{item.title}}
+      <view>{{item.title}}</view>
     </view>
     <view class="pic" wx:if="{{item.pic}}">
       <image src="{{item.pic}}"></image>
@@ -24,7 +26,7 @@
 </view>
 
 <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
-<view class="weui-loading"></view>
-<view class="weui-loadmore__tips">正在加载</view>
+  <view class="weui-loading"></view>
+  <view class="weui-loadmore__tips">正在加载 ...</view>
 </view>
 

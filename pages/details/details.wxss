@@ -12,9 +12,10 @@
 }
 
 .info{
-  font-size:24rpx;
+  font-size:26rpx;
   display: flex;
-  margin-bottom: 10rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 1px solid #ccc;
 }
 .time{
   margin-left: 10rpx;
@@ -23,4 +24,5 @@
   font-size: 34rpx;
   line-height: 54rpx;
   margin-bottom: 30rpx;
+  margin-top: 20rpx;
 }

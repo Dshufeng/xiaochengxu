@@ -42,7 +42,7 @@
   display: inline-block;
   width: 112rpx;
   text-align: center;
-  line-height: 80rpx;
+  line-height: 76rpx;
   font-size: 14px;
 }
 .navbar .navbar-item.active{  
@@ -52,7 +52,7 @@
 }
 
 .content{
-   padding-top:86rpx; 
+   padding-top:86rpx;
 }
 .new-content{
   background: #fff;
@@ -66,7 +66,11 @@
   margin-top:10rpx;
   line-height: 60rpx;
   margin-bottom: 16rpx;
+  display: flex;
+  justify-content: left;
+  
 }
+
 .new-footer{
   border-bottom: 2rpx solid #eee;
   display: flex;
@@ -117,14 +121,19 @@ text-align: center;
 display: inline-block;
 vertical-align: middle;
 }
+.tip{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 .tips{
-  height: 60rpx;
   background: #E0FFFF;
-  font-size: 16px;
+  font-size: 14px;
   display: flex;
   justify-content: center;
   width: 100%;
 }
 .tips text{
-  line-height: 60rpx;
+  line-height: 72rpx;
+  color:#007979;
 }

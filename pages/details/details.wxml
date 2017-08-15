@@ -7,7 +7,6 @@
     <view class="time">{{time}}</view>
   </view>
 
-
   <view class="details">
     <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
   </view>
